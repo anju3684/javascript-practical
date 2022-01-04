@@ -1,7 +1,45 @@
 var display = document.getElementById('display');
 const pie=3.142;
 const e=Math.E;
-var mem=0;
+
+
+let memory = [];
+let ms = 0;
+
+function mplus(){
+    var num = display.innerText;
+    memory.push(num);
+}
+
+function msclick(){
+    var txt;
+    if (ms === 0) {
+        txt = display.innerText;
+        ms = txt;
+        display.innerText = ms;
+    } else {
+    display.innerText += ms;
+    }
+}
+
+function mminus(){
+    memory.pop();
+}
+
+function mrclick(){
+    if (memory.length !== 0) {
+    let sum = memory.reduce((a, b) => a + b);
+    display.innerText = sum;
+    } 
+    else {
+    display.innerText = 0;
+    }
+}
+
+function mcclick(){
+    memory = [];
+}
+
 
 let buttons = Array.from(document.getElementsByClassName('button'));
 
@@ -28,6 +66,7 @@ buttons.map( button => {
         }
     });
 });
+
 function squareroot(){
     display.innerText=Math.sqrt(display.innerText);
 }
@@ -109,4 +148,63 @@ function eValue(){
         txt=e;
     }
     display.innerText=txt;
+}
+function sintrigo(){
+    var txt=display.innerText;
+    txt = Math.sin(txt * Math.PI / 180);
+    display.innerText = txt;
+}
+function costrigo(){
+    var txt=display.innerText;
+    txt = Math.cos(txt * Math.PI / 180);
+    display.innerText = txt;
+}
+function tantrigo(){
+    var txt=display.innerText;
+    txt = Math.tan(txt * Math.PI / 180);
+    display.innerText = txt;
+}
+function ceilfun(){
+    var txt=display.innerText;
+    txt=Math.ceil(txt);
+    display.innerText=txt;
+}
+function floorfun(){
+    var txt=display.innerText;
+    txt=Math.floor(txt);
+    display.innerText=txt;
+}
+function randomfun(){
+    var txt=Math.random();
+    display.innerText+=txt;
+}
+function floorfun(){
+    var txt=display.innerText;
+    txt=Math.trunc(txt);
+    display.innerText=txt;
+}
+function degtoradian(){
+    var txt=display.innerText;
+    txt=txt*Math.PI/180;
+    display.innerText=txt;
+}
+function degtofeh(){
+    var txt=display.innerText;
+    txt=(txt*9/5)+32;
+    display.innerText=txt;
+}
+function acostrigo(){
+    var txt=display.innerText;
+    txt = Math.acos(txt * Math.PI / 180);
+    display.innerText = txt;
+}
+function asintrigo(){
+    var txt=display.innerText;
+    txt = Math.asin(txt * Math.PI / 180);
+    display.innerText = txt;
+}
+function atantrigo(){
+    var txt=display.innerText;
+    txt = Math.atan(txt * Math.PI / 180);
+    display.innerText = txt;
 }
