@@ -178,7 +178,7 @@ function randomfun(){
     var txt=Math.random();
     display.innerText+=txt;
 }
-function floorfun(){
+function truncfun(){
     var txt=display.innerText;
     txt=Math.trunc(txt);
     display.innerText=txt;
